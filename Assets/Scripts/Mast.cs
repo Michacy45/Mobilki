@@ -1,18 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class Mast : MonoBehaviour
 {
     public float speed;
+    public Text countText;
+
+    private GameObject player;
+    private Rigidbody rigidbody;
+    private int count;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
+        rigidbody = GetComponent<Rigidbody>();
+        count = 0;
+        SetCount(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0f, speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f );
+        transform.Translate(-speed * Input.GetAxis("Vertical") * Time.deltaTime, 0f, speed * Input.GetAxis("Horizontal") * Time.deltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Pick Up"))
+        {
+            other.gameObject.SetActive(false);
+            count++;
+            SetCount();
+        }
+    }
+
+    void SetCount()
+    {
+        countText.text = "Count: " + count.ToString();
     }
 }
