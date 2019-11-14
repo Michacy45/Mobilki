@@ -24,7 +24,7 @@ public class Boat2 : MonoBehaviour
 
         transform.Rotate(0.0f, deckRot - shipRot, 0.0f);
 
-        
+
         //gameObject.transform.Find("deck").Translate(speed * Input.GetAxis("Vertical") * Time.deltaTime * -1, 0f, speed * Input.GetAxis("Horizontal") * Time.deltaTime);
         //transform.Translate(speed * Input.GetAxis("Vertical") * Time.deltaTime * -1, 0f, speed * Input.GetAxis("Horizontal") * Time.deltaTime);
     }
