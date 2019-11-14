@@ -28,17 +28,14 @@ public class collectingPoints : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(wind.currentSpeed);
 
         
             if (other.gameObject.CompareTag("Pick Up"))
             {
-                if (Mathf.Abs(wind.currentSpeed) < 0.03f)
-                {
                     other.gameObject.SetActive(false);
                     count++;
                     SetCount();
-                }
+                
             }
     }
 
