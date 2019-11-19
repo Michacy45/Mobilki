@@ -7,8 +7,6 @@ public class Wind : MonoBehaviour
     public float speed = 10.0f;
     public Vector3 baseDirection;
     public Vector3 windDirection;
-    private Vector3 lastPosition = Vector3.zero;
-    public float currentSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +18,6 @@ public class Wind : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Vector3 direction2 = Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f) * baseDirection;
         //print(gameObject.transform.Find("Mast").eulerAngles);
         //print(Vector3.SignedAngle(windDirection, gameObject.transform.Find("Mast").eulerAngles,new Vector3(1,0,1)));
@@ -65,9 +62,6 @@ public class Wind : MonoBehaviour
         float rudderAngle = gameObject.transform.Find("Rudder").GetComponent<HingeJoint>().angle;
         transform.Rotate(0.0f, -rudderAngle * Time.deltaTime * windForce * 0.5f, 0.0f);
 
-        currentSpeed = (transform.position - lastPosition).magnitude;
-        lastPosition = transform.position;
-        
     }
 
     /*private void ChangeWind()
