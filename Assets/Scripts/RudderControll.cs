@@ -6,11 +6,13 @@ public class RudderControll : MonoBehaviour
 {
     private int direction;
     private float widthScreen;
+    private float heightScreen;
     // Start is called before the first frame update
     void Start()
     {
         direction = 0;
         widthScreen = Screen.width;
+        heightScreen = Screen.height;
     }
 
     // Update is called once per frame
@@ -32,11 +34,11 @@ public class RudderControll : MonoBehaviour
         int i = 0;
         while (i < Input.touchCount)
         {
-            if (Input.GetTouch(i).position.x > widthScreen/2)
+            if (Input.GetTouch(i).position.x > widthScreen/2 && Input.GetTouch(i).position.y > heightScreen/4)
             {
                 direction = -1;
             }
-            else if (Input.GetTouch(i).position.x < widthScreen / 2)
+            else if (Input.GetTouch(i).position.x < widthScreen / 2 && Input.GetTouch(i).position.y > heightScreen / 4)
             {
                 direction = 1;
             }
