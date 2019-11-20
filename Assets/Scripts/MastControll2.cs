@@ -19,7 +19,7 @@ public class MastControll2 : MonoBehaviour
         float sliderAngle = GameObject.Find("MastSlider").GetComponent<Slider>().value;
         float differenceAngle = sliderAngle - currentAngle;
     
-        transform.Rotate(0, Time.deltaTime * differenceAngle * 3, 0);
+        transform.Rotate(0, Time.deltaTime * differenceAngle * 8, 0);
     }
 
 }

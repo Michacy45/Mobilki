@@ -65,7 +65,7 @@ public class Wind : MonoBehaviour
 
         float arrowAngle = GameObject.Find("Arrow").transform.eulerAngles.z;
         float cameraAngle = GameObject.Find("Main Camera").transform.eulerAngles.y;
-
+        print(ang);
         float arrowRot = ang - arrowAngle + cameraAngle - 90;
         GameObject.Find("Arrow").transform.Rotate(0.0f, 0.0f, arrowRot);
 
