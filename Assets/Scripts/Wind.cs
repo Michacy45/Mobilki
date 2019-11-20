@@ -11,7 +11,7 @@ public class Wind : MonoBehaviour
     void Start()
     {
         baseDirection = new Vector3(-1.0f, 0.0f, 0.0f);
-        windDirection = new Vector3(1.0f, 0.0f, 0.0f);
+        windDirection = new Vector3(-1.0f, 0.0f, 0.0f);
 
     }
 
@@ -25,6 +25,7 @@ public class Wind : MonoBehaviour
         float ang = Mathf.Atan2(windDirection.x, windDirection.z) * Mathf.Rad2Deg;                  //kat wiatru od poczatku ukladu
         float ang2 = Mathf.Abs(ang - gameObject.transform.Find("Deck").rotation.eulerAngles.y);        //kat pomiedzy wiatrem a deckiem
         float ang3 = Mathf.Abs(ang - gameObject.transform.Find("Mast").rotation.eulerAngles.y);
+        
 
         if (ang3 > 180)
         {
@@ -61,6 +62,13 @@ public class Wind : MonoBehaviour
 
         float rudderAngle = gameObject.transform.Find("Rudder").GetComponent<HingeJoint>().angle;
         transform.Rotate(0.0f, -rudderAngle * Time.deltaTime * windForce * 0.5f, 0.0f);
+
+        float arrowAngle = GameObject.Find("Arrow").transform.eulerAngles.z;
+        float cameraAngle = GameObject.Find("Main Camera").transform.eulerAngles.y;
+
+        float arrowRot = ang - arrowAngle + cameraAngle - 90;
+        GameObject.Find("Arrow").transform.Rotate(0.0f, 0.0f, arrowRot);
+
 
     }
 

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Boat2 : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float speed;
     private HingeJoint rudderHJ;
 
     // Start is called before the first frame update
