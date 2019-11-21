@@ -7,9 +7,11 @@ public class Wind : MonoBehaviour
     public float speed = 10.0f;
     public Vector3 baseDirection;
     public Vector3 windDirection;
+    private int iterator;
     // Start is called before the first frame update
     void Start()
     {
+        iterator = 0;
         baseDirection = new Vector3(-1.0f, 0.0f, 0.0f);
         windDirection = new Vector3(-1.0f, 0.0f, 0.0f);
         
@@ -51,7 +53,13 @@ public class Wind : MonoBehaviour
         // print(czyZWiatrem);
         //print(ang3);
         //print(Mathf.Abs(Mathf.Sin(ang3 * Mathf.Deg2Rad)));
-        //ChangeWind();
+        iterator++;
+        if (iterator == 15)
+        {
+            ChangeWind();
+            iterator = 0;
+        }
+    
         float windForce = 0.2f;
 
         if (czyZWiatrem)
@@ -74,10 +82,10 @@ public class Wind : MonoBehaviour
 
     }
 
-    /*private void ChangeWind()
+    private void ChangeWind()
     {
-        windDirection.x -= ChangeWindCoordinate(wind.x);
-        windDirection.z -= ChangeWindCoordinate(wind.z);
+        windDirection.x -= ChangeWindCoordinate(windDirection.x);
+        windDirection.z -= ChangeWindCoordinate(windDirection.z);
     }
 
     private float ChangeWindCoordinate(float coordinate)
@@ -90,6 +98,6 @@ public class Wind : MonoBehaviour
         {
             return Random.Range(-0.1f, 0.1f);
         }
-    }*/
+    }
 
 }

@@ -38,4 +38,12 @@ public class Menu : MonoBehaviour
         }
         Application.Quit();
     }
+    public void MainMenu()
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        SceneManager.LoadScene("Menu");
+    }
 }
