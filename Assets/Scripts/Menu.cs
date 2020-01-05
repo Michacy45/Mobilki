@@ -40,6 +40,7 @@ public class Menu : MonoBehaviour
     }
     public void MainMenu()
     {
+        Time.timeScale = 1;
         foreach (Transform child in transform)
         {
             GameObject.Destroy(child.gameObject);
