@@ -16,9 +16,9 @@ public class RudderControll : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        /*if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
             direction = -1;
         }
@@ -30,7 +30,7 @@ public class RudderControll : MonoBehaviour
         {
             direction = 0;
         }
-        transform.Rotate(0, Time.deltaTime * 100 * direction, 0);*/
+        transform.Rotate(0, Time.deltaTime * 100 * direction, 0);
         int i = 0;
         while (i < Input.touchCount)
         {

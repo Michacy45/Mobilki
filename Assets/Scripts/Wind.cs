@@ -8,17 +8,18 @@ public class Wind : MonoBehaviour
     public Vector3 baseDirection;
     public Vector3 windDirection;
     private int iterator;
+    private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         iterator = 0;
         baseDirection = new Vector3(-1.0f, 0.0f, 0.0f);
         windDirection = new Vector3(-1.0f, 0.0f, 0.0f);
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 direction2 = Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f) * baseDirection;
         //print(gameObject.transform.Find("Mast").eulerAngles);
@@ -67,10 +68,12 @@ public class Wind : MonoBehaviour
             windForce = Mathf.Max(Mathf.Sin(Mathf.Deg2Rad * ang3), 0.2f);
         }
 
-        transform.position += direction2 * Time.deltaTime * speed * windForce;
+        transform.position += direction2 * Time.fixedDeltaTime * speed * windForce;
+        //transform.Translate(direction2 * Time.fixedDeltaTime * speed * windForce);
+        //rb.MovePosition(transform.position + direction2 * Time.fixedDeltaTime * speed * windForce);
 
         float rudderAngle = gameObject.transform.Find("Rudder").GetComponent<HingeJoint>().angle;
-        transform.Rotate(0.0f, -rudderAngle * Time.deltaTime * windForce * 0.5f, 0.0f);
+        transform.Rotate(0.0f, -rudderAngle * Time.fixedDeltaTime * windForce * 0.5f, 0.0f);
 
         float arrowAngle = GameObject.Find("Arrow").transform.eulerAngles.z;
         float cameraAngle = GameObject.Find("Main Camera").transform.eulerAngles.y;
