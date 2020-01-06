@@ -6,9 +6,7 @@ using UnityEngine.UI;
 
 public class collectingPoints : MonoBehaviour
 {
-    private int count;
-    private string sail;
-    public Text countText;
+    public static int count;
     public Image sg;
     public Image ag;
     public Image ig;
@@ -17,19 +15,21 @@ public class collectingPoints : MonoBehaviour
     public Image ay;
     public Image iy;
     public Image ly;
+    public Text timeText;
+    private float gameTime;
 
     // Start is called before the first frame update
     void Start()
     {
         count = 0;
-        SetCount();
-        sail = "";
+        gameTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        gameTime += Time.deltaTime;
+        timeText.text = "Your time: " + gameTime.ToString("0.000");
     }
 
 
@@ -40,29 +40,32 @@ public class collectingPoints : MonoBehaviour
             other.gameObject.SetActive(false);
             ag.gameObject.SetActive(false);
             ay.gameObject.SetActive(true);
+            count += 1;
         }
         else if (other.gameObject.CompareTag("S"))
         {
             other.gameObject.SetActive(false);
             sg.gameObject.SetActive(false);
             sy.gameObject.SetActive(true);
+            count += 1;
+
         }
         else if (other.gameObject.CompareTag("I"))
         {
             other.gameObject.SetActive(false);
             ig.gameObject.SetActive(false);
             iy.gameObject.SetActive(true);
+            count += 1;
+
         }
         else if (other.gameObject.CompareTag("L"))
         {
             other.gameObject.SetActive(false);
             lg.gameObject.SetActive(false);
             ly.gameObject.SetActive(true);
+            count += 1;
+
         }
     }
 
-    void SetCount()
-    {
-        countText.text = "Count: " + count.ToString() + sail;
-    }
 }

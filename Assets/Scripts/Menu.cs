@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public Button startBtn;
-    public Button exitBtn;
 
     // Start is called before the first frame update
     void Start()
