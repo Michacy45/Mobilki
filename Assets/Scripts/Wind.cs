@@ -16,6 +16,10 @@ public class Wind : MonoBehaviour
         baseDirection = new Vector3(-1.0f, 0.0f, 0.0f);
         windDirection = new Vector3(-1.0f, 0.0f, 0.0f);
         rb = GetComponent<Rigidbody>();
+        Physics.IgnoreCollision(GameObject.Find("Deck").GetComponent<Collider>(), GetComponent<Collider>());
+        Physics.IgnoreCollision(GameObject.Find("Mast").GetComponent<Collider>(), GetComponent<Collider>());
+        Physics.IgnoreCollision(GameObject.Find("Sail").GetComponent<Collider>(), GetComponent<Collider>());
+        Physics.IgnoreCollision(GameObject.Find("Rudder").GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     // Update is called once per frame
