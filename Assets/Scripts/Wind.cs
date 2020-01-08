@@ -14,7 +14,7 @@ public class Wind : MonoBehaviour
     {
         iterator = 0;
         baseDirection = new Vector3(-1.0f, 0.0f, 0.0f);
-        windDirection = new Vector3(-1.0f, 0.0f, 0.0f);
+        windDirection = new Vector3(1.0f, 0.0f, 0.0f);
         rb = GetComponent<Rigidbody>();
         Physics.IgnoreCollision(GameObject.Find("Deck").GetComponent<Collider>(), GetComponent<Collider>());
         Physics.IgnoreCollision(GameObject.Find("Mast").GetComponent<Collider>(), GetComponent<Collider>());
