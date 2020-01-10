@@ -18,7 +18,7 @@ public class Wind : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Physics.IgnoreCollision(GameObject.Find("Deck").GetComponent<Collider>(), GetComponent<Collider>());
         Physics.IgnoreCollision(GameObject.Find("Mast").GetComponent<Collider>(), GetComponent<Collider>());
-        Physics.IgnoreCollision(GameObject.Find("Sail").GetComponent<Collider>(), GetComponent<Collider>());
+        //Physics.IgnoreCollision(GameObject.Find("Sail").GetComponent<Collider>(), GetComponent<Collider>());
         Physics.IgnoreCollision(GameObject.Find("Rudder").GetComponent<Collider>(), GetComponent<Collider>());
     }
 

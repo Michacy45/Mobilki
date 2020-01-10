@@ -10,6 +10,7 @@ TagManager:
   - A
   - S
   - I
+  - Ship
   layers:
   - Default
   - TransparentFX
