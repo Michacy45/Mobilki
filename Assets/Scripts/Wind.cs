@@ -17,9 +17,14 @@ public class Wind : MonoBehaviour
         windDirection = new Vector3(1.0f, 0.0f, 0.0f);
         rb = GetComponent<Rigidbody>();
         Physics.IgnoreCollision(GameObject.Find("Deck").GetComponent<Collider>(), GetComponent<Collider>());
-        Physics.IgnoreCollision(GameObject.Find("Mast").GetComponent<Collider>(), GetComponent<Collider>());
-        //Physics.IgnoreCollision(GameObject.Find("Sail").GetComponent<Collider>(), GetComponent<Collider>());
+        //Physics.IgnoreCollision(GameObject.Find("Mast").GetComponent<Collider>(), GetComponent<Collider>());
+       // Physics.IgnoreCollision(GameObject.Find("Sail").GetComponent<Collider>(), GetComponent<Collider>());
         Physics.IgnoreCollision(GameObject.Find("Rudder").GetComponent<Collider>(), GetComponent<Collider>());
+       /* Physics.IgnoreCollision(GameObject.Find("Line003").GetComponent<Collider>(), GetComponent<Collider>());
+        Physics.IgnoreCollision(GameObject.Find("Line002").GetComponent<Collider>(), GetComponent<Collider>());
+        Physics.IgnoreCollision(GameObject.Find("Line001").GetComponent<Collider>(), GetComponent<Collider>());
+        Physics.IgnoreCollision(GameObject.Find("Plane001").GetComponent<Collider>(), GetComponent<Collider>());
+        Physics.IgnoreCollision(GameObject.Find("rura").GetComponent<Collider>(), GetComponent<Collider>());*/
     }
 
     // Update is called once per frame

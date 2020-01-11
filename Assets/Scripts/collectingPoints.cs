@@ -57,7 +57,7 @@ public class collectingPoints : MonoBehaviour
             iy.gameObject.SetActive(true);
             count += 1;
 
-        }   
+        }
         else if (other.gameObject.CompareTag("L"))
         {
             other.gameObject.SetActive(false);
