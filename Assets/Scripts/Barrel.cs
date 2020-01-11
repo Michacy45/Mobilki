@@ -43,7 +43,9 @@ public class Barrel : MonoBehaviour
             Destroy(this.gameObject, 0.25f);
             Destroy(other.gameObject);
             GameObject mast = GameObject.FindGameObjectWithTag("Mast");
+            GameObject rudder = GameObject.FindGameObjectWithTag("Rudder");
             Destroy(mast);
+            Destroy(rudder);
         }
     }
 }
