@@ -45,4 +45,14 @@ public class Menu : MonoBehaviour
         }
         SceneManager.LoadScene("Menu");
     }
+
+    public void Achivemensts()
+    {
+        Time.timeScale = 1;
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        SceneManager.LoadScene("Achivement");
+    }
 }

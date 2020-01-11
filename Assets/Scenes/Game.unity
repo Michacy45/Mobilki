@@ -1644,7 +1644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3286824, y: 0.642}
   m_AnchorMax: {x: 0.6673411, y: 0.75523233}
-  m_AnchoredPosition: {x: 1.2, y: -32.4}
+  m_AnchoredPosition: {x: 1.199997, y: -32.4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &580380751
@@ -1907,6 +1907,16 @@ PrefabInstance:
       propertyPath: menu
       value: 
       objectReference: {fileID: 770081605}
+    - target: {fileID: -7920405695908622166, guid: 75d3f1e03827f0d4f8ffac804e2c4b62,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1251496445}
+    - target: {fileID: -7920405695908622166, guid: 75d3f1e03827f0d4f8ffac804e2c4b62,
+        type: 3}
+      propertyPath: resumeButton
+      value: 
+      objectReference: {fileID: 1065191354}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75d3f1e03827f0d4f8ffac804e2c4b62, type: 3}
 --- !u!4 &612351441 stripped
@@ -5241,7 +5251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3286824, y: 0.3896979}
   m_AnchorMax: {x: 0.6673411, y: 0.5}
-  m_AnchoredPosition: {x: 2.4, y: -11.7}
+  m_AnchoredPosition: {x: 2.399994, y: -11.700001}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1536423450
