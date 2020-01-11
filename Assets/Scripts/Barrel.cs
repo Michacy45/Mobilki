@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Barrel : MonoBehaviour
 {
@@ -12,13 +14,15 @@ public class Barrel : MonoBehaviour
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
 
-    protected Rigidbody Rb3D;
+    public GameObject pauseMenu;
+    public GameObject resumeButton;
+
+    private  Rigidbody Rb3D;
     public GameObject explosion;
     protected bool isDamageResistant = false;
 
     void Start()
     {
-        //Physics.IgnoreCollision(GameObject.Find("Deck").GetComponent<Collider>(), GetComponent<Collider>());
         Rb3D = GetComponent<Rigidbody>();
         posOffset = transform.position;
     }
@@ -46,6 +50,20 @@ public class Barrel : MonoBehaviour
             GameObject rudder = GameObject.FindGameObjectWithTag("Rudder");
             Destroy(mast);
             Destroy(rudder);
+            pauseMenu.SetActive(true);
+            resumeButton.SetActive(false);
         }
     }
+
+    public void mainMenu()
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        SceneManager.LoadScene("Menu");
+
+    }
+
+
 }

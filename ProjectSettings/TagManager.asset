@@ -13,6 +13,7 @@ TagManager:
   - Ship
   - Barrel
   - Mast
+  - Rudder
   layers:
   - Default
   - TransparentFX

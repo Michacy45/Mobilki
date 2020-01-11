@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
@@ -46,5 +46,14 @@ public class PauseGame : MonoBehaviour
         leftButton.SetActive(true);
         rightButton.SetActive(true);
         mastSlider.interactable = true;
+    }
+
+    public void newGame()
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        SceneManager.LoadScene("Game");
     }
 }
