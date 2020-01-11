@@ -12,14 +12,13 @@ public class Barrel : MonoBehaviour
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
 
-    public GameObject Player;
     protected Rigidbody Rb3D;
     public GameObject explosion;
     protected bool isDamageResistant = false;
 
-    protected virtual void Start()
+    void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        //Physics.IgnoreCollision(GameObject.Find("Deck").GetComponent<Collider>(), GetComponent<Collider>());
         Rb3D = GetComponent<Rigidbody>();
         posOffset = transform.position;
     }
@@ -37,14 +36,14 @@ public class Barrel : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == Player)
+        if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("test");
             GameObject explosion2 = Instantiate(explosion, transform.position, Quaternion.identity);
 
             Destroy(this.gameObject, 0.25f);
-            Destroy(explosion,1.5f);
-            Destroy(other);
+            Destroy(other.gameObject);
+            GameObject mast = GameObject.FindGameObjectWithTag("Mast");
+            Destroy(mast);
         }
     }
 }

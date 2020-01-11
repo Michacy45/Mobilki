@@ -12,6 +12,7 @@ TagManager:
   - I
   - Ship
   - Barrel
+  - Mast
   layers:
   - Default
   - TransparentFX
