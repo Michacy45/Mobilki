@@ -11,6 +11,7 @@ TagManager:
   - S
   - I
   - Ship
+  - Barrel
   layers:
   - Default
   - TransparentFX
