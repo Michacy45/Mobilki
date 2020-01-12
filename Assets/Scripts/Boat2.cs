@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class Boat2 : MonoBehaviour
 {
     // Start is called before the first frame update
-    private HingeJoint rudderHJ;
 
     // Start is called before the first frame update
     void Start()
     {
-        rudderHJ = transform.Find("Rudder").GetComponent<HingeJoint>();
+  
     }
 
     // Update is called once per frame
