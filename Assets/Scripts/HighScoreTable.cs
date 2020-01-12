@@ -69,7 +69,7 @@ public class HighScoreTable : MonoBehaviour
 
         transform.Find("PosText").GetComponent<Text>().text = rankString;
 
-        int score = highScoreEntry.score;
+        float score = highScoreEntry.score;
 
         transform.Find("ScoreText").GetComponent<Text>().text = score.ToString();
 
@@ -79,6 +79,12 @@ public class HighScoreTable : MonoBehaviour
     private class HighScoreEntry
     {
 
-        public int score;
+        public float score;
     }
+
+    public void addScore(float timeScore)
+    {
+        highScoreEntryList.Add(new HighScoreEntry {score = timeScore });
+    }
+
 }
