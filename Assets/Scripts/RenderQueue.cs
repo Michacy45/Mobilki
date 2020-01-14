@@ -1,8 +1,16 @@
-﻿using UnityEngine;
+﻿/*
+	SetRenderQueue.cs
+ 
+	Sets the RenderQueue of an object's materials on Awake. This will instance
+	the materials, so the script won't interfere with other renderers that
+	reference the same materials.
+*/
+
+using UnityEngine;
 
 [AddComponentMenu("Rendering/SetRenderQueue")]
 
-public class SetRenderQueue : MonoBehaviour
+public class RenderQueue : MonoBehaviour
 {
 
     [SerializeField]

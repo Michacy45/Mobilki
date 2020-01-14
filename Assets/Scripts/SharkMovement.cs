@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class SharkMovement : MonoBehaviour
 {
-    private float angle;
-    public float speed;
-    public float radius;
     private float letterCenterX;
     private float letterCenterY;
     private float letterCenterZ;
+    public PauseGame pauseGame;
     void Start()
     {
-        angle = 0;
-        speed = (2 * Mathf.PI) / 5;
-        radius = 13;
+        pauseGame = (PauseGame)GameObject.Find("Canvas").GetComponent(typeof(PauseGame));
         letterCenterX = GameObject.FindGameObjectWithTag("A").transform.position.x;
         letterCenterY = GameObject.FindGameObjectWithTag("A").transform.position.y;
         letterCenterZ = GameObject.FindGameObjectWithTag("A").transform.position.z;
@@ -42,6 +38,7 @@ public class SharkMovement : MonoBehaviour
             GameObject rudder = GameObject.Find("Rudder");
             Destroy(mast);
             Destroy(rudder);
+            pauseGame.Death();
         }
     }
 

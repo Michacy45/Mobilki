@@ -10,6 +10,7 @@ public class PauseGame : MonoBehaviour
     public Slider mastSlider;
     public GameObject pauseMenu;
     public GameObject endMenu;
+    public GameObject deathPanel;
 
     private HighScoreTable script;
     public Text timerText;
@@ -64,5 +65,15 @@ public class PauseGame : MonoBehaviour
         leftButton.SetActive(true);
         rightButton.SetActive(true);
         mastSlider.interactable = true;
+    }
+
+    public void Death()
+    {
+        deathPanel.SetActive(true);
+        Time.timeScale = 0;
+        leftButton.SetActive(false);
+        rightButton.SetActive(false);
+        mastSlider.interactable = false;
+        
     }
 }

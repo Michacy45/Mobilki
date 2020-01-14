@@ -15,9 +15,11 @@ public class Barrel : MonoBehaviour
     protected Rigidbody Rb3D;
     public GameObject explosion;
     protected bool isDamageResistant = false;
+    public PauseGame pauseGame;
 
     void Start()
     {
+        pauseGame = (PauseGame)GameObject.Find("Canvas").GetComponent(typeof(PauseGame));
         //Physics.IgnoreCollision(GameObject.Find("Deck").GetComponent<Collider>(), GetComponent<Collider>());
         Rb3D = GetComponent<Rigidbody>();
         posOffset = transform.position;
@@ -38,14 +40,26 @@ public class Barrel : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            GameObject explosion2 = Instantiate(explosion, transform.position, Quaternion.identity);
-
-            Destroy(this.gameObject, 0.25f);
-            Destroy(other.gameObject);
-            GameObject mast = GameObject.Find("Mast");
-            GameObject rudder = GameObject.Find("Rudder");
-            Destroy(mast);
-            Destroy(rudder);
+            //GameObject explosion2 = Instantiate(explosion, transform.position, Quaternion.identity);
+            StartCoroutine(Czekanko(other));
+           
         }
+    }
+
+    IEnumerator Czekanko(Collider other)
+    {
+        GameObject explosion2 = Instantiate(explosion, transform.position, Quaternion.identity);
+        //Destroy(this.gameObject, 0.25f);
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        Destroy(GameObject.Find("Cylinder.001"));
+        Destroy(GameObject.Find("Cylinder.002"));
+        Destroy(other.gameObject);
+        GameObject mast = GameObject.Find("Mast");
+        GameObject rudder = GameObject.Find("Rudder");
+        Destroy(mast);
+        Destroy(rudder);
+        yield return new WaitForSeconds(3);
+        pauseGame.Death();
+       
     }
 }
