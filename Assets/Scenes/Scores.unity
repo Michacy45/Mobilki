@@ -1073,7 +1073,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1533985203}
-  - component: {fileID: 1533985204}
   m_Layer: 5
   m_Name: Table
   m_TagString: Untagged

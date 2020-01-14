@@ -34,7 +34,7 @@ public class PauseGame : MonoBehaviour
         }
         else if(isFinished == true)
         {
-            script.addScore(Time.time - startTime);
+            HighScoreTable.addScore(Time.time - startTime);
         }
 
         if(collectingPoints.count == 4)
@@ -65,4 +65,5 @@ public class PauseGame : MonoBehaviour
         rightButton.SetActive(true);
         mastSlider.interactable = true;
     }
+
 }
