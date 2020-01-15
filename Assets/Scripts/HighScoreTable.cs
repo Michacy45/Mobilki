@@ -27,7 +27,7 @@ public class HighScoreTable : MonoBehaviour
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
         for (int i = 0; i < highscores.highScoreEntryList.Count - 1; i++)
-        {
+        {   
             for (int j = 0; j < highscores.highScoreEntryList.Count - 1; j++)
             {
                 if (highscores.highScoreEntryList[j].score > highscores.highScoreEntryList[j + 1].score)
@@ -87,6 +87,14 @@ public class HighScoreTable : MonoBehaviour
 
         transform.Find("ScoreText").GetComponent<Text>().text = score.ToString();
 
+
+        transform.Find("background").gameObject.SetActive(rank % 2 == 1) ;
+
+        if (rank == 1)
+        {
+            transform.Find("ScoreText").GetComponent<Text>().color = Color.yellow;
+            transform.Find("PosText").GetComponent<Text>().color = Color.yellow;
+        }
         transformList.Add(transform);
     }
 
