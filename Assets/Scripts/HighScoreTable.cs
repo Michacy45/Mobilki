@@ -17,11 +17,11 @@ public class HighScoreTable : MonoBehaviour
 
         template.gameObject.SetActive(false);
 
-        highScoreEntryList = new List<HighScoreEntry>()
-        {
-              new HighScoreEntry{ score = 1234},
-            new HighScoreEntry{ score = 2234},
-        };
+        //highScoreEntryList = new List<HighScoreEntry>()
+        //{
+        //      new HighScoreEntry{ score = 1234},
+        //    new HighScoreEntry{ score = 2234},
+        //};
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
