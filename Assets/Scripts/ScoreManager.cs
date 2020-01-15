@@ -7,12 +7,14 @@ public class ScoreManager : MonoBehaviour
 {
     private Transform container;
     private Transform template;
-    private List<HighScoreEntry> highScoreEntryList;
+    private static List<HighScoreEntry> highScoreEntryList;
     private List<Transform> highScoreEntryTransformList;
 
     private void Start()
     {
-        highScoreEntryList = new List<HighScoreEntry>()
+        if (PlayerPrefs.GetString("highscoreTable").Length == 0)
+        {
+            highScoreEntryList = new List<HighScoreEntry>()
         {
             new HighScoreEntry{ score = 9999},
             new HighScoreEntry{ score = 9999},
@@ -25,14 +27,15 @@ public class ScoreManager : MonoBehaviour
             new HighScoreEntry{ score = 9999},
         };
 
-        Highscores highscoresDemo = new Highscores { highScoreEntryList = highScoreEntryList };
+            Highscores highscoresDemo = new Highscores { highScoreEntryList = highScoreEntryList };
 
-        string json = JsonUtility.ToJson(highscoresDemo);
+            string json = JsonUtility.ToJson(highscoresDemo);
 
-        PlayerPrefs.SetString("highscoreTable", json);
-        PlayerPrefs.Save();
+            PlayerPrefs.SetString("highscoreTable", json);
+            PlayerPrefs.Save();
 
-        Debug.Log(PlayerPrefs.GetString("highscoreTable"));
+            Debug.Log(PlayerPrefs.GetString("highscoreTable"));
+        }
     }
     private void Awake()
     {
@@ -42,16 +45,13 @@ public class ScoreManager : MonoBehaviour
 
         template.gameObject.SetActive(false);
 
-       
-
-
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
 
 
         for (int i = 0; i < highscores.highScoreEntryList.Count - 1; i++)
-        {   
+        {
             for (int j = 0; j < highscores.highScoreEntryList.Count - 1; j++)
             {
                 if (highscores.highScoreEntryList[j].score > highscores.highScoreEntryList[j + 1].score)
@@ -72,7 +72,7 @@ public class ScoreManager : MonoBehaviour
         //}
 
 
-        for (int i = 0; i <highscores.highScoreEntryList.Count && i < 10; i++)
+        for (int i = 0; i < highscores.highScoreEntryList.Count && i < 10; i++)
         {
             CreateHighScoreEntryTransform(highscores.highScoreEntryList[i], container, highScoreEntryTransformList);
         }
@@ -106,7 +106,7 @@ public class ScoreManager : MonoBehaviour
         transform.Find("ScoreText").GetComponent<Text>().text = score.ToString();
 
 
-        transform.Find("background").gameObject.SetActive(rank % 2 == 1) ;
+        transform.Find("background").gameObject.SetActive(rank % 2 == 1);
 
         if (rank == 1)
         {
