@@ -16,10 +16,12 @@ public class PauseGame : MonoBehaviour
     public Text timerText;
     private float startTime;
     private bool isFinished = false;
+    private bool saved = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        saved = false;
         Time.timeScale = 1;
         startTime = Time.time;
         timerText.text = startTime.ToString();
@@ -33,9 +35,11 @@ public class PauseGame : MonoBehaviour
             float t = Time.time - startTime;
             timerText.text = t.ToString();
         }
-        else if(isFinished == true)
+        else if(isFinished == true && saved == false)
         {
-            script.addScore(Time.time - startTime);
+            saved = true;
+            Debug.Log("eloo");
+            HighScoreTable.addScore(Time.time - startTime);
         }
 
         if(collectingPoints.count == 4)
