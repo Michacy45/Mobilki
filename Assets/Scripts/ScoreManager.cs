@@ -3,28 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HighScoreTable : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
     private Transform container;
     private Transform template;
     private List<HighScoreEntry> highScoreEntryList;
     private List<Transform> highScoreEntryTransformList;
 
+    private void Start()
+    {
+        highScoreEntryList = new List<HighScoreEntry>()
+        {
+            new HighScoreEntry{ score = 9999},
+            new HighScoreEntry{ score = 9999},
+            new HighScoreEntry{ score = 9999},
+            new HighScoreEntry{ score = 9999},
+            new HighScoreEntry{ score = 9999},
+            new HighScoreEntry{ score = 9999},
+            new HighScoreEntry{ score = 9999},
+            new HighScoreEntry{ score = 9999},
+            new HighScoreEntry{ score = 9999},
+        };
+
+        Highscores highscoresDemo = new Highscores { highScoreEntryList = highScoreEntryList };
+
+        string json = JsonUtility.ToJson(highscoresDemo);
+
+        PlayerPrefs.SetString("highscoreTable", json);
+        PlayerPrefs.Save();
+
+        Debug.Log(PlayerPrefs.GetString("highscoreTable"));
+    }
     private void Awake()
     {
+        Debug.Log("Log");
         container = transform.Find("Container");
         template = container.Find("HighscoreTemplate");
 
         template.gameObject.SetActive(false);
 
-        //highScoreEntryList = new List<HighScoreEntry>()
-        //{
-        //      new HighScoreEntry{ score = 1234},
-        //    new HighScoreEntry{ score = 2234},
-        //};
+       
+
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+
 
         for (int i = 0; i < highscores.highScoreEntryList.Count - 1; i++)
         {   
@@ -47,13 +71,7 @@ public class HighScoreTable : MonoBehaviour
         //    CreateHighScoreEntryTransform(highScoreEntry, container, highScoreEntryTransformList);
         //}
 
-        //Highscores highscores = new Highscores { highScoreEntryList = highScoreEntryList };
 
-        //string json = JsonUtility.ToJson(highscores);
-
-        //PlayerPrefs.SetString("highscoreTable", json);
-        //PlayerPrefs.Save();
-        Debug.Log(PlayerPrefs.GetString("highscoreTable"));
         for (int i = 0; i <highscores.highScoreEntryList.Count && i < 10; i++)
         {
             CreateHighScoreEntryTransform(highscores.highScoreEntryList[i], container, highScoreEntryTransformList);

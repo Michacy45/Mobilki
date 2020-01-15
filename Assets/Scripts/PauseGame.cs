@@ -12,7 +12,7 @@ public class PauseGame : MonoBehaviour
     public GameObject endMenu;
     public GameObject deathPanel;
 
-    private HighScoreTable script;
+    private ScoreManager script;
     public Text timerText;
     private float startTime;
     private bool isFinished = false;
@@ -39,7 +39,7 @@ public class PauseGame : MonoBehaviour
         {
             saved = true;
             Debug.Log("eloo");
-            HighScoreTable.addScore(Time.time - startTime);
+            ScoreManager.addScore(Time.time - startTime);
         }
 
         if(collectingPoints.count == 4)
