@@ -21,7 +21,7 @@ public class collectingPoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        count = 0;
+        count = 3;
         gameTime = 0;
     }
 
