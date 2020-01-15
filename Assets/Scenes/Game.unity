@@ -9249,8 +9249,104 @@ PrefabInstance:
     - target: {fileID: 3817082372270151242, guid: d55454c63e515584eb6d3249ab7e3f29,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372156281472, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372156281472, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372156281475, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372156281475, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372156281475, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -182
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372156281475, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -230
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821213, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -190
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821210, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817082372377821210, guid: d55454c63e515584eb6d3249ab7e3f29,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aebdab7db9bded74e9509914828366bd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d55454c63e515584eb6d3249ab7e3f29, type: 3}
 --- !u!1 &1104807477 stripped
