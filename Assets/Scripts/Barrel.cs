@@ -51,8 +51,10 @@ public class Barrel : MonoBehaviour
         GameObject explosion2 = Instantiate(explosion, transform.position, Quaternion.identity);
         //Destroy(this.gameObject, 0.25f);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
-        Destroy(GameObject.Find("Cylinder.001"));
-        Destroy(GameObject.Find("Cylinder.002"));
+        foreach(MeshRenderer meszyk in gameObject.GetComponentsInChildren<MeshRenderer>())
+        {
+            meszyk.enabled = false;
+        }
         Destroy(other.gameObject);
         GameObject mast = GameObject.Find("Mast");
         GameObject rudder = GameObject.Find("Rudder");

@@ -21,7 +21,7 @@ public class collectingPoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        count = 3;
+        count = 0;
         gameTime = 0;
     }
 
@@ -29,7 +29,7 @@ public class collectingPoints : MonoBehaviour
     void Update()
     {
         gameTime += Time.deltaTime;
-        timeText.text = "Your time: " + gameTime.ToString("0.000");
+        timeText.text = "Your time: " + gameTime.ToString("0.00");
     }
 
 

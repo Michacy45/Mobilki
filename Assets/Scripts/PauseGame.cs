@@ -11,6 +11,7 @@ public class PauseGame : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject endMenu;
     public GameObject deathPanel;
+    public GameObject menuButton;
 
     private ScoreManager script;
     public Text timerText;
@@ -33,7 +34,7 @@ public class PauseGame : MonoBehaviour
         if(isFinished == false)
         {
             float t = Time.time - startTime;
-            timerText.text = t.ToString();
+            timerText.text = t.ToString("0.00");
         }
         else if(isFinished == true && saved == false)
         {
@@ -60,6 +61,7 @@ public class PauseGame : MonoBehaviour
         leftButton.SetActive(false);
         rightButton.SetActive(false);
         mastSlider.interactable = false;
+        menuButton.SetActive(false);
     }
 
     public void Resume()
@@ -69,6 +71,7 @@ public class PauseGame : MonoBehaviour
         leftButton.SetActive(true);
         rightButton.SetActive(true);
         mastSlider.interactable = true;
+        menuButton.SetActive(true);
     }
 
     public void Death()
@@ -78,6 +81,7 @@ public class PauseGame : MonoBehaviour
         leftButton.SetActive(false);
         rightButton.SetActive(false);
         mastSlider.interactable = false;
+        menuButton.SetActive(false);
         
     }
 }

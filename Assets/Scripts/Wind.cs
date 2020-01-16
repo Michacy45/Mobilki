@@ -70,11 +70,11 @@ public class Wind : MonoBehaviour
             iterator = 0;
         }
     
-        float windForce = 0.2f;
+        float windForce = 0.3f;
 
         if (czyZWiatrem)
         {
-            windForce = Mathf.Max(Mathf.Sin(Mathf.Deg2Rad * ang3), 0.2f);
+            windForce = Mathf.Max(Mathf.Sin(Mathf.Deg2Rad * ang3), 0.4f);
         }
 
         transform.position += direction2 * Time.fixedDeltaTime * speed * windForce;
@@ -82,7 +82,7 @@ public class Wind : MonoBehaviour
         //rb.MovePosition(transform.position + direction2 * Time.fixedDeltaTime * speed * windForce);
 
         float rudderAngle = gameObject.transform.Find("Rudder").GetComponent<HingeJoint>().angle;
-        transform.Rotate(0.0f, -rudderAngle * Time.fixedDeltaTime * windForce * 0.5f, 0.0f);
+        transform.Rotate(0.0f, -rudderAngle * Time.fixedDeltaTime * windForce * 0.8f, 0.0f);
 
         float arrowAngle = GameObject.Find("Arrow").transform.eulerAngles.z;
         float cameraAngle = GameObject.Find("Main Camera").transform.eulerAngles.y;
