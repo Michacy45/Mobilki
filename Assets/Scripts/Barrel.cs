@@ -7,6 +7,7 @@ public class Barrel : MonoBehaviour
 //    public float degreesPerSecond = 15.0f;
     private float amplitude = 0.2f;
     private float frequency = 0.8f;
+    private float fi;
 
     // Position Storage Variables
     Vector3 posOffset = new Vector3();
@@ -23,6 +24,7 @@ public class Barrel : MonoBehaviour
         //Physics.IgnoreCollision(GameObject.Find("Deck").GetComponent<Collider>(), GetComponent<Collider>());
         Rb3D = GetComponent<Rigidbody>();
         posOffset = transform.position;
+        fi = Random.Range(-90, 90);
     }
     // Update is called once per frame
     void Update()
@@ -31,7 +33,7 @@ public class Barrel : MonoBehaviour
         //transform.Rotate(new Vector3(0f, Time.deltaTime * degreesPerSecond, 0f), Space.World);
 
         tempPos = posOffset;
-        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
+        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency + Mathf.Deg2Rad*fi) * amplitude;
 
         transform.position = tempPos;
     }
