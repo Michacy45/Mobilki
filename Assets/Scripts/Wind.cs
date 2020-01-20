@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    public float speed = 10.0f;
+    public static float speed;
     public Vector3 baseDirection;
     public Vector3 windDirection;
     private int iterator;
@@ -12,6 +12,7 @@ public class Wind : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = 6;
         iterator = 0;
         baseDirection = new Vector3(-1.0f, 0.0f, 0.0f);
         windDirection = new Vector3(1.0f, 0.0f, 0.0f);

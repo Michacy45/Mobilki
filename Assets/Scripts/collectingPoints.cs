@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class collectingPoints : MonoBehaviour
 {
+    public GameObject words;
+    public PauseGame pauseGame;
+    public GameObject logo;
+    public GameObject letters;
     public static int count;
     public Image sg;
     public Image ag;
@@ -17,12 +21,17 @@ public class collectingPoints : MonoBehaviour
     public Image ly;
     public Text timeText;
     private float gameTime;
+    private int iter;
+    private float step;
+    private int child;
 
     // Start is called before the first frame update
     void Start()
     {
-        count = 0;
+        count = 3;
         gameTime = 0;
+        iter = 20;
+        step = 1.0f / iter;
     }
 
     // Update is called once per frame
@@ -41,6 +50,10 @@ public class collectingPoints : MonoBehaviour
             ag.gameObject.SetActive(false);
             ay.gameObject.SetActive(true);
             count += 1;
+            child = Random.Range(0, 3);
+            child = child % 3 + 3;
+            iter = 0;
+            dbajOAKtywnoscSwojegoDziecka();
         }
         else if (other.gameObject.CompareTag("S"))
         {
@@ -48,7 +61,10 @@ public class collectingPoints : MonoBehaviour
             sg.gameObject.SetActive(false);
             sy.gameObject.SetActive(true);
             count += 1;
-
+            child = Random.Range(0, 3);
+            child = child % 3;
+            iter = 0;
+            dbajOAKtywnoscSwojegoDziecka();
         }
         else if (other.gameObject.CompareTag("I"))
         {
@@ -56,7 +72,10 @@ public class collectingPoints : MonoBehaviour
             ig.gameObject.SetActive(false);
             iy.gameObject.SetActive(true);
             count += 1;
-
+            child = Random.Range(0, 3);
+            child = child % 3 + 6;
+            iter = 0;
+            dbajOAKtywnoscSwojegoDziecka();
         }
         else if (other.gameObject.CompareTag("L"))
         {
@@ -64,6 +83,50 @@ public class collectingPoints : MonoBehaviour
             lg.gameObject.SetActive(false);
             ly.gameObject.SetActive(true);
             count += 1;
+            child = Random.Range(0, 3);
+            child = child % 3 + 9;
+            iter = 0;
+            dbajOAKtywnoscSwojegoDziecka();
+
+        }
+
+
+    }
+    void LateUpdate()
+    {
+        if (iter < 20)
+        {
+            words.transform.localScale += new Vector3(step, step, 0.0f);
+            iter++;
+            if(iter == 20)
+            {
+                StartCoroutine(animate());
+            }
+        }
+    }
+
+    void dbajOAKtywnoscSwojegoDziecka()
+    {
+        letters.SetActive(false);
+        logo.SetActive(true);
+        words.transform.GetChild(child).gameObject.SetActive(true);
+    }
+
+    private IEnumerator animate()
+    {   
+        if(count == 4)
+        {
+            Wind.speed = 0;
+        }
+        yield return new WaitForSeconds(1.0f);
+        words.transform.GetChild(child).gameObject.SetActive(false);
+        letters.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        logo.SetActive(false);
+        words.transform.localScale = new Vector3(0, 0, 0);
+        if (count == 4)
+        {
+            pauseGame.EndGame();
 
         }
     }

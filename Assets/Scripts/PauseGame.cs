@@ -12,6 +12,8 @@ public class PauseGame : MonoBehaviour
     public GameObject endMenu;
     public GameObject deathPanel;
     public GameObject menuButton;
+    public GameObject instructionPanel;
+    public GameObject timer;
 
     private ScoreManager script;
     public Text timerText;
@@ -26,6 +28,7 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1;
         startTime = Time.time;
         timerText.text = startTime.ToString();
+        InstructionOn();
     }
 
     // Update is called once per frame
@@ -43,15 +46,6 @@ public class PauseGame : MonoBehaviour
             ScoreManager.addScore(Time.time - startTime);
         }
 
-        if(collectingPoints.count == 4)
-        {
-            isFinished = true;
-            Time.timeScale = 0;
-            leftButton.SetActive(false);
-            rightButton.SetActive(false);
-            mastSlider.interactable = false;
-            endMenu.SetActive(true);
-        }
     }
 
     public void Pause()
@@ -81,7 +75,35 @@ public class PauseGame : MonoBehaviour
         leftButton.SetActive(false);
         rightButton.SetActive(false);
         mastSlider.interactable = false;
+        menuButton.SetActive(false);   
+    }
+
+    public void InstructionOn()
+    {
+        Time.timeScale = 0;
+        instructionPanel.SetActive(true);
+        leftButton.SetActive(false);
+        rightButton.SetActive(false);
+        mastSlider.interactable = false;
         menuButton.SetActive(false);
-        
+    }
+    public void InstructionOff()
+    {
+        Time.timeScale = 1;
+        instructionPanel.SetActive(false);
+        leftButton.SetActive(true);
+        rightButton.SetActive(true);
+        mastSlider.interactable = true;
+        menuButton.SetActive(true);
+    }
+    public void EndGame()
+    {
+        isFinished = true;
+        Time.timeScale = 0;
+        leftButton.SetActive(false);
+        rightButton.SetActive(false);
+        mastSlider.interactable = false;
+        timer.SetActive(false);
+        endMenu.SetActive(true);
     }
 }

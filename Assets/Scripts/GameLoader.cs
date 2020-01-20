@@ -13,6 +13,7 @@ public class GameLoader : MonoBehaviour
     public Slider slider;
     public float oldValue;
     public void loadLevel(int sceneIndex)
+
     {
         StartCoroutine(LoadAsyncrhonously(sceneIndex));
     }
@@ -22,6 +23,7 @@ public class GameLoader : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         mainMenuController.SetActive(false);
         loadingScreenController.SetActive(true);
+        Debug.Log(GameObject.Find("LoadingSlider").GetComponent<Slider>().value);
         oldValue = slider.value;
 
         while (!operation.isDone)
