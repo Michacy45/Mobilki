@@ -19,6 +19,10 @@ public class collectingPoints : MonoBehaviour
     public Image ay;
     public Image iy;
     public Image ly;
+    public GameObject A;
+    public GameObject S;
+    public GameObject I;
+    public GameObject L;
     public Text timeText;
     private float gameTime;
     private int iter;
@@ -28,7 +32,7 @@ public class collectingPoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        count = 3;
+        count = 0;
         gameTime = 0;
         iter = 20;
         step = 1.0f / iter;
@@ -44,6 +48,7 @@ public class collectingPoints : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        other.GetComponentInParent<AudioSource>().Play();
         if (other.gameObject.CompareTag("A"))
         {
             other.gameObject.SetActive(false);
@@ -53,7 +58,9 @@ public class collectingPoints : MonoBehaviour
             child = Random.Range(0, 3);
             child = child % 3 + 3;
             iter = 0;
+            A.SetActive(true);
             dbajOAKtywnoscSwojegoDziecka();
+            ;
         }
         else if (other.gameObject.CompareTag("S"))
         {
@@ -64,6 +71,7 @@ public class collectingPoints : MonoBehaviour
             child = Random.Range(0, 3);
             child = child % 3;
             iter = 0;
+            S.SetActive(true);
             dbajOAKtywnoscSwojegoDziecka();
         }
         else if (other.gameObject.CompareTag("I"))
@@ -75,6 +83,7 @@ public class collectingPoints : MonoBehaviour
             child = Random.Range(0, 3);
             child = child % 3 + 6;
             iter = 0;
+            I.SetActive(true);
             dbajOAKtywnoscSwojegoDziecka();
         }
         else if (other.gameObject.CompareTag("L"))
@@ -86,6 +95,7 @@ public class collectingPoints : MonoBehaviour
             child = Random.Range(0, 3);
             child = child % 3 + 9;
             iter = 0;
+            L.SetActive(true);
             dbajOAKtywnoscSwojegoDziecka();
 
         }

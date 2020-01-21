@@ -50,6 +50,7 @@ public class Barrel : MonoBehaviour
 
     IEnumerator Czekanko(Collider other)
     {
+        gameObject.transform.parent.GetComponentInParent<AudioSource>().Play();
         GameObject explosion2 = Instantiate(explosion, transform.position, Quaternion.identity);
         //Destroy(this.gameObject, 0.25f);
         gameObject.GetComponent<MeshRenderer>().enabled = false;

@@ -15,6 +15,7 @@ public class PauseGame : MonoBehaviour
     public GameObject instructionPanel;
     public GameObject timer;
 
+
     private ScoreManager script;
     public Text timerText;
     private float startTime;
